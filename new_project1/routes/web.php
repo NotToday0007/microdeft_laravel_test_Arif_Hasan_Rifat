@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AssetController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+
+Route::get('/',[AssetController::class,'index'])->name('asset.show');
+Route::get('asset/create',[AssetController::class,'create'])->name('asset.create');
+Route::get('asset/{id}', [AssetController::class, 'show'])->name('asset.show');
+
